@@ -5,7 +5,16 @@ import { BACKEND_URL } from '@/config/global';
 
 export const pb = new PocketBase(BACKEND_URL);
 
-export const getImages = async () => await pb.collection(Collections.IMAGES).getFullList() as Image[];
+export const getImages = async () => {
+  try {
+    const images = await pb.collection(Collections.IMAGES).getFullList() as Image[];
+    return images;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    return [];
+  }
+};
 
 export const addImage = async ({
   ratio, thumbnail, fullSize,

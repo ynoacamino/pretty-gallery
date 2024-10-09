@@ -1,8 +1,12 @@
 services:
   back:
     build: ./back
+    ports:
+      - "8090:8090"
     volumes:
       - ./back/pb_data/:/pb/pb_data
       - ./back/pb_hooks/:/pb/pb_hooks
   front:
     build: ./front
+    ports:
+      - "3000:3000"

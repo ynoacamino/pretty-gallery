@@ -30,8 +30,6 @@ export const action = async (formData: FormData) => {
   const fileThumbnail = bufferToFile({ buffer: thumbnail, fileName: 'thumbnail.webp', mimeType: 'image/webp' });
   const fileFullSize = bufferToFile({ buffer: fullSize, fileName: 'fullSize.webp', mimeType: 'image/webp' });
 
-  console.log({ fileFullSize, fileThumbnail });
-
   await addImage({ ratio, thumbnail: fileThumbnail, fullSize: fileFullSize });
 
   revalidatePath('/');
