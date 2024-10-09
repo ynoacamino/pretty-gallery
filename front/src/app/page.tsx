@@ -2,6 +2,8 @@ import Column from '@/components/column';
 import { getImages } from '@/lib/pb';
 import { getColumns } from '@/lib/utils';
 
+export const revalidate = 0;
+
 export default async function Home() {
   const images = await getImages();
 
